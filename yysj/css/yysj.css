@@ -1,0 +1,42 @@
+.fixing,.fixing_bot{
+	width: 100%;
+	height: auto;
+	float: left;
+	position: relative;
+	/*text-align: left;*/
+}
+.fixing>p{
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	/*border-bottom: 1px dashed #999;*/
+}
+.fixing>p>select{
+	width: 25%;
+	margin-left: 50px;
+}
+.fixing>p>input{
+	width: 37%;
+	border: 1px solid #8A8989;
+	height: 25px;
+}
+.fixing>font{
+	margin-left: 60px;
+	color: #999999;
+}
+.tu{
+	width: 90%;
+	height: 250px;
+
+}
+#jieshao{
+	width: 90%;
+	height: 140px;
+	line-height: 25px;
+	margin-top: 15px;
+	text-align: left;
+	border-bottom: 1px dashed #999;
+}
+#jieshao>span{
+	margin-left: 50px;
+}

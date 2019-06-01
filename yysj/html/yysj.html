@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+    <link href="../css/public2.css" ype="text/css" rel="stylesheet"/> 
+    <link href="../css/yysj.css" ype="text/css" rel="stylesheet"/> 
+    <script type="text/javascript" src="../js/jquery-1.11.0.min.js" ></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //二级菜单
+            $("#pnav").click(function(){
+                if($(this).hasClass("close")){
+                    $(this).next("ul").slideUp(1000);
+                    $(this).removeClass("close");
+                    $(this).addClass("open");
+                }else{
+                    $(this).next("ul").slideDown(1000);
+                    $(this).removeClass("open");
+                    $(this).addClass("close");
+                }
+            })
+            //验证姓名
+            $("#userName").keyup(function(){
+            var namepre=/^[\u2E80-\u9FFF]+$/;
+            if(namepre.test($("#userName").val())){
+                $("#namemsg").css("color","green").html("输入正确");
+            }else{
+                $("#namemsg").css("color","red").html("请输入汉字名字");
+                }
+           })
+            //验证手机号
+           $("#utel").keyup(function(){
+           var telpre=/^(13|15|17|18|19)[0-9]{9}$/;
+            if(telpre.test($(this).val())){
+                $("#telmsg").css("color","green").html("输入正确");
+            }else{
+                $("#telmsg").css("color","red").html("请输入正确手机号");
+                }
+            })
+           
+           
+           //验证时间格式
+           $("#ytime").keyup(function(){
+           var telpre=/^[0-9]{3}[1-9]{1}-[0-9]{2}-[0-9]{2}/;
+            if(telpre.test($(this).val())){
+                $("#ytimemsg").css("color","green").html("输入正确");
+            }else{
+                $("#ytimemsg").css("color","red").html("请输入正确时间");
+                }
+            })
+           // 支付定金按钮验证
+            $("#pay").click(function(){
+                $("#userName").triggerHandler("keyup");
+                $("#utel").triggerHandler("keyup");
+                $("#ytime").triggerHandler("keyup");
+                if($("#namemsg").html("请输入汉字名字")||$("#telmsg").html("请输入正确手机号")||$("#ytimemsg").html("请输入正确时间")){
+                    event.preventDefault();//阻止默认行为
+                }else{
+                    window.open("页面加载.html");
+                }
+            })
+            //预约试驾验证
+            $("#yysj").click(function(){
+            	$("#pay").triggerHandler("click");
+            })
+        })
+    </script>
+    <title>嘉润微车行——让您最放心的车辆交易平台</title>
+</head>
+<body>
+    <div class="headone">嘉润微车行</div>
+    <div class="headtwo">
+        <span class="left-font">嘉润微车行</span>
+        <input type="text" name="text" value="">
+        <span class="right-font"><a href="#">登陆</a>&nbsp;&nbsp;<a href="#">注册</a></span>
+    </div>
+    <div class="nav">
+        <a href="#"><img src="../img/pub-home.png" alt="" class="phome"></a>
+        检车预约
+        <!-- XXXX为自己替换名字 -->
+        <img src="../img/pub-nav.png" alt="" class="pnav" id="pnav" >
+        <ul class="navul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">检车</a></li>
+            <li><a href="#">洗车</a></li>
+            <li><a href="#">保险</a></li>
+            <li><a href="#">维护保养</a></li>
+            <li><a href="#">新闻发布</a></li>
+        </ul>
+    </div>
+    <div class="contents">
+    	<div class="fixing">
+    		<div class="tu">
+    			<img src="../img/J1.jpg" style="width: 100%; height: 100%;"/>
+    		</div>
+    		<div id="jieshao">
+    			<span>品牌：宝马5系&nbsp;2014款520li典雅型</span><br>
+    			<span>排量：2.0L</span><span>变速箱：自动</span><br>
+    			<span>结构：三厢</span><span>油耗：10.7L-14.5L</span><br>
+    			<span>生产日期：2014年8月</span><br>
+    			<span>价格：31.9万</span>
+    		</div>
+    		<p><span id="">
+    			姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：
+    		</span>
+    		<input type="text" name="need" id="userName" value="" />
+    		<span class="destyle" id="namemsg" style="color: #f00;">*</span>
+    		</p>
+    		<font>请正确填写真实姓名</font>
+    		<p><span id="">
+    			联系电话：
+    		</span>
+    		<input type="text" name="utel" id="utel" value="" />
+    		<span class="destyle" id="telmsg"  style="color: #f00;">*</span>
+    		</p>
+    		<font>请正确填写11位手机号</font>
+    		<p><span id="">
+    			预约时间：
+    		</span>
+    		<input type="text" name="ytime" id="ytime" value="" />
+    		<span class="destyle" id="ytimemsg"  style="color: #f00;">*</span>
+    		</p>
+    		<font>时间格式为yyyy-mm-dd</font>
+    			<p style="border: 0;margin-top: 20px;">
+    				<input type="submit" name="fabu" id="pay" value="支付定金" />
+    			</p>
+    			<p style="border: 0;margin-top: 10px;margin-bottom: 10px;">
+    				<input type="submit" name="fabu" id="yysj" value="预约试驾" />
+    			</p>
+    	</div>
+    </div>
+    <div class="footer">Copyright 2015 QHD二手车版权所有<br>意见反馈</div>
+    <script type="text/javascript" src="../js/public.js"></script>
+</body>
+</html>
